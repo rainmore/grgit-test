@@ -5,6 +5,10 @@ plugins {
 
 def version = "1.0.0"
 
+
+
+
+
 task foo {
     
     doLast {
