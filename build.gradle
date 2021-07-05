@@ -10,21 +10,19 @@ task foo {
     
     doLast {
         def vcsBranch = grgit.branch.current().name
-        println("current branch name:")
-        println(vcsBranch)
-        println(vcsBranch.tokenize('/').last().toLowerCase().replaceAll('[^0-9A-Za-z]', '-'))
+        println("current branch name: " + vcsBranch)
+        def vcsVersionPart = vcsBranch.tokenize('/').last().toLowerCase().replaceAll('[^0-9A-Za-z]', '-')
+        println("version part name: " + vcsVersionPart)
 
         println("describe:")
         def vscDescribe = grgit.describe()
         println(vscDescribe)
 
-        println("isValidTagVersion:")
-        println(version == vscDescribe)
+        println("isValidTagVersion: " + (version == vscDescribe).toString())
 
         def composeVersion = (version == vscDescribe) ? version :
-                [version, vcsBranch.tokenize('/').last().toLowerCase().replaceAll('[^0-9A-Za-z]', '-'), 'SNAPSHOT'].join("-")
+                [version, vcsVersionPart, 'SNAPSHOT'].join("-")
 
-        println("composed version:")
-        println(composeVersion)
+        println("composed version: " + composeVersion)
     }
 }
