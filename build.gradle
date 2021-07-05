@@ -20,5 +20,11 @@ task foo {
 
         println("isValidTagVersion:")
         println(version == vscDescribe)
+
+        def composeVersion = (version == vscDescribe) ? version :
+                [version, vcsBranch.tokenize('/').last().toLowerCase().replaceAll('[^0-9A-Za-z]', '-'), 'SNAPSHOT'].join("-")
+
+        println("composed version:")
+        println(composeVersion)
     }
 }
