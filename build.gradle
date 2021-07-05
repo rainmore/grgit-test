@@ -1,0 +1,23 @@
+plugins {
+    id("org.ajoberstar.grgit")                 version "2.2.1"          apply true
+}
+
+
+def version = "1.0.0"
+
+task foo {
+    
+    doLast {
+        def vcsBranch = grgit.branch.current().name
+        println("current branch name:")
+        println(vcsBranch)
+        println(vcsBranch.tokenize('/').last().toLowerCase().replaceAll('[^0-9A-Za-z]', '-'))
+
+        println("describe:")
+        def vscDescribe = grgit.describe()
+        println(vscDescribe)
+
+        println("isValidTagVersion:")
+        println(version == vscDescribe)
+    }
+}
