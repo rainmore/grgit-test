@@ -3,13 +3,13 @@ plugins {
 }
 
 
-def version = "1.0.5"
+def version = "1.0.6"
 
 
 task foo {
     
     doLast {
-        
+
         def vcsBranch = grgit.branch.current().name
         println("current branch name: " + vcsBranch)
         def vcsVersionPart = vcsBranch.tokenize('/').last().toLowerCase().replaceAll('[^0-9A-Za-z]', '-')
