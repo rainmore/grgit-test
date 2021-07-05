@@ -24,5 +24,7 @@ task foo {
                 [version, vcsVersionPart, 'SNAPSHOT'].join("-")
 
         println("composed version: " + composeVersion)
+
     }
+
 }
