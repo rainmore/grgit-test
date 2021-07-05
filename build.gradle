@@ -1,5 +1,5 @@
 plugins {
-    id("org.ajoberstar.grgit")                 version "2.2.1"          apply true
+    id("org.ajoberstar.grgit")                 version "3.1.1"          apply true
 }
 
 
