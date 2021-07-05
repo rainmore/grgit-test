@@ -1,6 +1,6 @@
 name: Run GrGit Test
 on:
-    [push]
+    [push, workflow_dispatch]
 jobs:
     foo:
         name: Run Foo
