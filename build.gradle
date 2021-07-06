@@ -17,7 +17,7 @@ task foo {
         println("version part name: " + vcsVersionPart)
 
         println("describe:")
-        def vscDescribe = grgit.describe()
+        def vscDescribe = grgit.describe(tags: true)
         println(vscDescribe)
 
         println("isValidTagVersion: " + (version == vscDescribe).toString())
